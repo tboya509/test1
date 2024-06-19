@@ -13,6 +13,10 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
+    env:
+      AWS_ACCESS_KEY_ID: "AKIAVUSIMXQ2NO4ZELSE"
+      AWS_SECRET_ACCESS_KEY: "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"
+      AWS_REGION: "us-east-1"
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
