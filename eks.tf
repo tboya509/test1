@@ -3,15 +3,17 @@ resource "aws_eks_cluster" "demo" {
   role_arn = aws_iam_role.demo.arn
   version                   = 1.29
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-  security_group_ids      = [aws_security_group.cluster.id]
+  
 
   vpc_config {
+    security_group_ids      = [aws_security_group.cluster.id]
     subnet_ids = [
       aws_subnet.private-us-east-1a.id,
       aws_subnet.private-us-east-1b.id,
       aws_subnet.public-us-east-1a.id,
       aws_subnet.public-us-east-1b.id
     ]
+   
   }
 
   depends_on = [aws_iam_role_policy_attachment.demo-AmazonEKSClusterPolicy]
