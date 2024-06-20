@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "demo" {
   name     = "demo"
   role_arn = aws_iam_role.demo.arn
-  version                   = var.kubernetes_version
+  version                   = 1.29
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   security_group_ids      = [aws_security_group.cluster.id]
 
