@@ -1,4 +1,7 @@
 #network.tf
+provider "aws" {
+  region = "us-east-1" # Change to your region
+}
 #vpc
 resource "aws_vpc" "main" {
   cidr_block = "10.88.0.0/16"
