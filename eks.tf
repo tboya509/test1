@@ -291,5 +291,5 @@ output "eks_cluster_autoscaler_arn" {
 provider "kubernetes" {
   host                   = aws_eks_cluster.demo.endpoint
   cluster_ca_certificate = base64decode(aws_eks_cluster.demo.certificate_authority[0].data)
-  token                  = aws_eks_cluster.demo.cluster_endpoint.token
+  token                  = aws_eks_cluster.demo.access_token
 }
