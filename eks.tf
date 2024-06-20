@@ -151,22 +151,22 @@ resource "aws_eks_addon" "ebs-csi" {
 }
 
 
-resource "kubernetes_storage_class" "gp3" {
-  metadata {
-    name = "gp3"
-    annotations = {
-      "storageclass.kubernetes.io/is-default-class" = "true"
-    }
-  }
+#resource "kubernetes_storage_class" "gp3" {
+#  metadata {
+#    name = "gp3"
+#    annotations = {
+#      "storageclass.kubernetes.io/is-default-class" = "true"
+#    }
+#  }#
 
-  storage_provisioner = "kubernetes.io/aws-ebs"
-  parameters = {
-    type = "gp3"
-  }
+#  storage_provisioner = "kubernetes.io/aws-ebs"
+#  parameters = {
+#    type = "gp3"
+#  }
 
-  reclaim_policy = "Retain"
-  volume_binding_mode = "WaitForFirstConsumer"
-}
+#  reclaim_policy = "Retain"
+#  volume_binding_mode = "WaitForFirstConsumer"
+#}
 
 
 
@@ -288,8 +288,8 @@ output "eks_cluster_autoscaler_arn" {
 
 
 
-provider "kubernetes" {
-  host                   = aws_eks_cluster.demo.endpoint
-  cluster_ca_certificate = base64decode(aws_eks_cluster.demo.certificate_authority[0].data)
-  token                  = aws_eks_cluster.demo.token
-}
+#provider "kubernetes" {
+#  host                   = aws_eks_cluster.demo.endpoint
+#  cluster_ca_certificate = base64decode(aws_eks_cluster.demo.certificate_authority[0].data)
+#  token                  = aws_eks_cluster.demo.token
+#}
